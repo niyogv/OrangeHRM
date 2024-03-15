@@ -28,7 +28,10 @@ class Test_login():
 
     @pytest.fixture
     def test_invoke(self):
-        self.driver=webdriver.Chrome()
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        self.driver=webdriver.Chrome(options=chrome_options)
+        #self.driver=webdriver.Chrome()
         self.driver.get(URL)
 
     def test_1(self,test_invoke):
